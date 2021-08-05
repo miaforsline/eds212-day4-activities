@@ -1,0 +1,44 @@
+---
+title: "r-exploring"
+author: "Mia Forsline"
+date: "8/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(skimr)
+library(GGally)
+```
+
+```{r}
+names(diamonds)
+
+dim(diamonds)
+
+summary(diamonds)
+
+head(diamonds)
+
+tail(diamonds)
+
+skimr::skim(diamonds)
+
+ggpairs(diamonds)
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = price, y = carat))+
+  geom_point(alpha = 0.1)+ 
+  theme_classic()
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat))+
+  geom_histogram()+ 
+  theme_classic()+
+  labs(x = "Carat",
+       y = "Frequency")
+```
+
